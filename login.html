@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <title>澳門城市大學模拟 - 中央認證系統</title>
+  
+  
+  <link rel="stylesheet" href="css/cas.css" />
+  <link rel="stylesheet" href="css/cas-ext.css" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+  
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+  <![endif]-->
+</head>
+<body id="cas">
+  <div id="container">
+      <div id="content">
+
+
+
+<div class="box" id="login">
+  <form id="fm1">
+
+    
+
+    <div class="logo"></div>
+
+    <section class="row">
+      <label for="username"><span class="accesskey">U</span>sername(Teacher No./Student No.):
+        <span id="username-warning" style="display:none;">username is required</span>
+      </label>
+      
+        
+        
+          
+          <input id="username" name="username" class="required" tabindex="1" accesskey="e" type="text" value="" size="25" autocomplete="off"/>
+        
+      
+    </section>
+    
+    <section class="row">
+      <label for="password"><span class="accesskey">P</span>assword(Same as URP platform):
+        <span id="password-warning" style="display:none;">password is required</span>
+      </label>
+      
+      <input id="password" name="password" class="required" tabindex="2" accesskey="p" type="password" value="" size="25" autocomplete="off"/>
+    </section>
+
+    <section class="row btn-row">
+      <input type="hidden" name="lt" value="LT-608655-rwLpzJEqcVcY1nTEmSge2D2njWNGzr-tronclass.cityu.edu.mo" />
+      <input type="hidden" name="execution" value="e1s1" />
+      <input type="hidden" name="_eventId" value="submit" />
+
+      <input class="btn-submit" id="submit" name="submit" accesskey="l" value="LOGIN" tabindex="4" type="submit" />
+    </section>
+    <!--<section class="row">
+      <a class="change-pwd" href="#" target="_blank">
+        Change Password
+      </a>
+    </section>-->
+  </form>
+
+  <script type="text/javascript">
+    var queryString = window.location.search;
+    var urlParams = new URLSearchParams(queryString);
+    var sofficeId = urlParams.get('sofficeid');
+    var uno = urlParams.get('uno');
+
+    if (sofficeId && uno) {
+      var x = document.getElementsByClassName("row");
+      var i;
+      for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+      }
+      setTimeout(function(){
+        document.getElementById('username').value = uno;
+        document.getElementById('password').value = 'sofficeid_' + sofficeId;
+        document.getElementById("submit").click();
+      }, 300);
+    }
+
+    /**
+    登陆实现
+    **/
+       
+    const e = document.querySelector.bind(document)
+    const form = e('#fm1')
+    form.addEventListener('submit', function(event) {   
+      // 阻止默认的 刷新事件
+      event.preventDefault(event);
+      // 获取输入数据
+      let formData = new FormData(form)
+      let useranme = formData.get('username')
+      let password = formData.get('password')
+      // 验证
+      if (password === 'abc' && useranme === 'D24090103711') {
+        alert('login success')
+        window.location.replace('shouyefuyuan(1)(1).html')
+      } else {
+        alert('login fail')
+      }
+    })
+  </script>
+    
+</div>
+
+
+
+      </div> <!-- END #content -->
+
+    </div> <!-- END #container -->
+    
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+
+    
+    <script type="text/javascript" src="cas.js"></script>
+
+  </body>
+</html>
+
+
